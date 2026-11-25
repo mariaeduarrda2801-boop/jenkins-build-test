@@ -4,13 +4,13 @@ pipeline {
     stages {
         stage('Compilar no Docker') {
             steps {
-                bat '"C:\\Users\\maria\\AppData\\Local\\Programs\\DockerDesktop\\resources\\bin\\docker.exe" compose -f docker\\docker-compose-build.yml run --rm build'
+                bat '"C:\\Users\\maria\\AppData\\Local\\Programs\\DockerDesktop\\resources\\bin\\docker-compose.exe" -f docker\\docker-compose-build.yml run --rm build'
             }
         }
 
         stage('Executar testes no Docker') {
             steps {
-                bat '"C:\\Users\\maria\\AppData\\Local\\Programs\\DockerDesktop\\resources\\bin\\docker.exe" compose -f docker\\docker-compose-test.yml run --rm test'
+                bat '"C:\\Users\\maria\\AppData\\Local\\Programs\\DockerDesktop\\resources\\bin\\docker-compose.exe" -f docker\\docker-compose-test.yml run --rm test'
             }
         }
     }
