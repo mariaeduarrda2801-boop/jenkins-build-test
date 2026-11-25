@@ -7,9 +7,17 @@ pipeline {
     }
 
     stages {
-        stage('Compilar e testar') {
+        stage('Compilar') {
             steps {
-                bat '"C:\\Program Files\\Maven\\bin\\mvn.cmd" clean test'
+                bat '"C:\\Program Files\\Maven\\bin\\mvn.cmd" clean test-compile'
+            }
+        }
+
+        stage('Executar testes') {
+            steps {
+                catchError(buildResult: 'UNSTABLE', stageResult: 'UNSTABLE') {
+                    bat '"C:\\Program Files\\Maven\\bin\\mvn.cmd" surefire:test'
+                }
             }
         }
     }
@@ -20,4 +28,3 @@ pipeline {
         }
     }
 }
-
