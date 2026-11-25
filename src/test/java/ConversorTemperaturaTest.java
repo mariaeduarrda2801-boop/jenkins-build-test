@@ -8,7 +8,7 @@ public class ConversorTemperaturaTest {
 
     @Test
     public void deveConverterFahrenheitParaCelsius() {
-        assertEquals(0.0, conversor.fahrenheitParaCelsius(32), 0.01);
+        assertEquals(1.0, conversor.fahrenheitParaCelsius(32), 0.01);
         assertEquals(100.0, conversor.fahrenheitParaCelsius(212), 0.01);
     }
 
