@@ -1,0 +1,17 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Compilar no Docker') {
+            steps {
+                bat '"C:\\Users\\maria\\AppData\\Local\\Programs\\DockerDesktop\\resources\\bin\\docker.exe" compose -f docker\\docker-compose-build.yml run --rm build'
+            }
+        }
+
+        stage('Executar testes no Docker') {
+            steps {
+                bat '"C:\\Users\\maria\\AppData\\Local\\Programs\\DockerDesktop\\resources\\bin\\docker.exe" compose -f docker\\docker-compose-test.yml run --rm test'
+            }
+        }
+    }
+}

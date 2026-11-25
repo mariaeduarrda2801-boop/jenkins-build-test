@@ -1,0 +1,8 @@
+services:
+  test:
+    image: maven:3.9.9-eclipse-temurin-21
+    container_name: jenkins-test
+    working_dir: /app
+    volumes:
+      - ..:/app
+    command: mvn test
